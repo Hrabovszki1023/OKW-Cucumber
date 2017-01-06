@@ -53,10 +53,9 @@ public class LoginTest {
 	}
 
 	@Test
-	public void test() throws Exception {
+	public void Hello_OKW() throws Exception {
 		EN.BeginTest(tcname.getMethodName());
-		
-		
+
 		EN.EndTest();
 	}
 
