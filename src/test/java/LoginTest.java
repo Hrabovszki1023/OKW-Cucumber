@@ -68,6 +68,9 @@ public class LoginTest {
 		
 				//OKW_GetJavaClass myOKW_GetJavaClass = new OKW_GetJavaClass();
 				myLogger.LogPrint( OKW_GetJavaClass.getClassPaths("okw.gui.frames").toString());
+				
+				//myLogger.LogPrint( OKW_GetJavaClass.getClasses( "okw.gui.frames").toString());
+				
 		EN.EndTest();
 		
 	}
