@@ -6,12 +6,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
+import okw.OKW_GetJavaClass;
 import okw.core.EN;
 import okw.log.Logger_Sngltn;
 import okw.log.log2html.Log2HTML;
+import okw.gui.frames.frmFirefox;
 
 public class LoginTest {
 
+	static Logger_Sngltn myLogger;
 	
     static Log2HTML myLog2html;
 	  /** 
@@ -29,7 +32,7 @@ public class LoginTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception
 	{
-        Logger_Sngltn myLogger = Logger_Sngltn.getInstance();
+        myLogger = Logger_Sngltn.getInstance();
         myLog2html = new Log2HTML();
 
         // Reset/init the Logger
@@ -59,4 +62,13 @@ public class LoginTest {
 		EN.EndTest();
 	}
 
+	@Test
+	public void tcWP_Login() throws Exception {
+		EN.BeginTest(tcname.getMethodName());
+		
+				//OKW_GetJavaClass myOKW_GetJavaClass = new OKW_GetJavaClass();
+				myLogger.LogPrint( OKW_GetJavaClass.getClassPaths("okw.gui.frames").toString());
+		EN.EndTest();
+		
+	}
 }
