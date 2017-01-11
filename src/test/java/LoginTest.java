@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -6,11 +8,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import okw.OKW_GetJavaClass;
+import okw.OKW_newGetJavaClasses;
+import okw.OKW_GJC;
 import okw.core.EN;
 import okw.log.Logger_Sngltn;
 import okw.log.log2html.Log2HTML;
-import okw.gui.frames.frmFirefox;
 
 public class LoginTest {
 
@@ -57,20 +59,41 @@ public class LoginTest {
 
 	@Test
 	public void Hello_OKW() throws Exception {
-		EN.BeginTest(tcname.getMethodName());
+		//EN.BeginTest(tcname.getMethodName());
 
-		EN.EndTest();
+		//EN.EndTest();
 	}
 
 	@Test
 	public void tcWP_Login() throws Exception {
 		EN.BeginTest(tcname.getMethodName());
 		
-				//OKW_GetJavaClass myOKW_GetJavaClass = new OKW_GetJavaClass();
-				myLogger.LogPrint( OKW_GetJavaClass.getClassPaths("okw.gui.frames").toString());
-				
-				//myLogger.LogPrint( OKW_GetJavaClass.getClasses( "okw.gui.frames").toString());
-				
+		EN.StartApp("Firefox");
+		EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
+		
+		EN.SelectWindow("WP-Login");
+		EN.SetValue("Username", "Zoltan");
+		EN.SetValue("Password", "Geheim");
+		EN.ClickOn("Log In");
+		
+		EN.StopApp("Firefox");
+		EN.EndTest();
+		
+	}
+	
+	@Test
+	public void tcWP_Login_2() throws Exception {
+		EN.BeginTest(tcname.getMethodName());
+		
+		EN.StartApp("Firefox");
+		EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
+		
+		EN.SelectWindow("WP-Login");
+		EN.SetValue("Username", "Zoltan");
+		EN.SetValue("Password", "Geheim");
+		EN.ClickOn("Log In");
+		
+		EN.StopApp("Firefox");
 		EN.EndTest();
 		
 	}
