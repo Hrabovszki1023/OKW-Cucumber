@@ -73,24 +73,7 @@ public class LoginTest {
 		
 		EN.SelectWindow("WP-Login");
 		EN.SetValue("Username", "Zoltan");
-		EN.SetValue("Password", "Geheim");
-		EN.ClickOn("Log In");
-		
-		EN.StopApp("Firefox");
-		EN.EndTest();
-		
-	}
-	
-	@Test
-	public void tcWP_Login_2() throws Exception {
-		EN.BeginTest(tcname.getMethodName());
-		
-		EN.StartApp("Firefox");
-		EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
-		
-		EN.SelectWindow("WP-Login");
-		EN.SetValue("Username", "Zoltan");
-		EN.SetValue("Password", "Geheim");
+		EN.SetValue("Password", "${TestPWD}");
 		EN.ClickOn("Log In");
 		
 		EN.StopApp("Firefox");

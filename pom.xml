@@ -20,12 +20,12 @@
   	<dependency>
   		<groupId>de.openkeyword</groupId>
   		<artifactId>se</artifactId>
-  		<version>0.0.25</version>
+  		<version>0.0.27</version>
   	</dependency>
   	<dependency>
   		<groupId>de.openkeyword</groupId>
   		<artifactId>log2html</artifactId>
-  		<version>0.0.25</version>
+  		<version>0.0.27</version>
   	</dependency>
   			<dependency>
 			<groupId>junit</groupId>
