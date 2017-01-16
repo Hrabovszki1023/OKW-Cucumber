@@ -8,8 +8,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import okw.OKW_newGetJavaClasses;
-import okw.OKW_GJC;
 import okw.core.EN;
 import okw.log.Logger_Sngltn;
 import okw.log.log2html.Log2HTML;
@@ -57,15 +55,9 @@ public class LoginTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void Hello_OKW() throws Exception {
-		//EN.BeginTest(tcname.getMethodName());
-
-		//EN.EndTest();
-	}
 
 	@Test
-	public void tcWP_Login() throws Exception {
+	public void tcWP_LoginError() throws Exception {
 		EN.BeginTest(tcname.getMethodName());
 		
 		EN.StartApp("Firefox");
@@ -75,6 +67,8 @@ public class LoginTest {
 		EN.SetValue("Username", "Zoltan");
 		EN.SetValue("Password", "${TestPWD}");
 		EN.ClickOn("Log In");
+		
+		EN.VerifyExists("Login Error", "YES");
 		
 		EN.StopApp("Firefox");
 		EN.EndTest();
