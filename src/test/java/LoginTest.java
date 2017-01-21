@@ -51,9 +51,16 @@ public class LoginTest {
 	public void setUp() throws Exception {
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
+	
+  @After
+  public void FirefoxAfter() throws Exception
+  {
+    Runtime rt = Runtime.getRuntime();
+      if (System.getProperty("os.name").toLowerCase().indexOf("windows") > -1) 
+         rt.exec("taskkill firefox");
+       else
+         rt.exec("pkill -f firefox");
+  }
 
 
 	@Test
@@ -65,13 +72,35 @@ public class LoginTest {
 		
 		EN.SelectWindow("WP-Login");
 		EN.SetValue("Username", "Zoltan");
-		EN.SetValue("Password", "${TestPWD}");
+		EN.SetValue("Password", "Uschi");
 		EN.ClickOn("Log In");
 		
 		EN.VerifyExists("Login Error", "YES");
 		
 		EN.StopApp("Firefox");
 		EN.EndTest();
-		
 	}
+
+	
+	 @Test
+	  public void tcWP_Login() throws Exception {
+	    EN.BeginTest(tcname.getMethodName());
+	    
+	    EN.StartApp("Firefox");
+	    EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
+	    
+	    EN.SelectWindow("WP-Login");
+	    EN.SetValue("Username", "Zoltan");
+	    EN.SetValue("Password", "${TestPassword}");
+	    EN.ClickOn("Log In");
+	    
+	    EN.VerifyExists("Login Error", "NO");
+	    
+      //EN.SelectWindow("WP-Admin");
+	    
+	    
+	    EN.StopApp("Firefox");
+	    EN.EndTest();
+	  }
+
 }
