@@ -68,7 +68,7 @@ public class LoginTest {
 		EN.SetValue("Password", "${TestPWD}");
 		EN.ClickOn("Log In");
 		
-		EN.VerifyExists("Login Error", "YES");
+		EN.VerifyExists("Login Error", "NO");
 		
 		EN.StopApp("Firefox");
 		EN.EndTest();

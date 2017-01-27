@@ -31,15 +31,5 @@ public class wp_login extends SeBrowserChild
     public wp_login()
     {
     	super("//body/div[@id='login']/..");
-        
-    	// Concat Child and Window Locators...
-    	/* Username    = new SeInputText("%1$s//*[@id='user_login']", this.getLOCATOR() );
-    	Password    = new SeInputText("%1$s//*[@id='user_pass']", this.getLOCATOR() );
-        Remember_Me = new SeInputCheckbox("%1$s//*[@id='rememberme']", this.getLOCATOR() );
-
-    	Log_In      = new SeInputButton( "%1$s//*[@id='wp-submit']", this.getLOCATOR() );
-    	LostPasswd  = new SeLink( "%1$s//p[@id='nav']/a", this.getLOCATOR() );
-        Back        = new SeLink( "%1$s//p[@id='backoblog']/a", this.getLOCATOR() );
-        */
     }
 }
