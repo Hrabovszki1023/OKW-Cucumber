@@ -1,6 +1,8 @@
 package okw.gui.container;
 
 import okw.OKW;
+import okw.gui.AnyWinBase;
+import okw.gui.OKWLocator;
 import okw.gui.adapter.selenium.*;
 
 
@@ -15,8 +17,13 @@ import okw.gui.adapter.selenium.*;
 //  * Sub-Menü´s wie All Posts, Add New usw "//ul[contains(@class, 'wp-submenu')]//a[@href='????.php']""
 // Capturen ist hier nicht möglich
 // ZH
-public class wp_admin_menu
+public class wp_admin_menu extends SeAnyWin
 {
+  public wp_admin_menu( String Locator, OKWLocator okwLocator )
+  {
+    super( Locator, okwLocator );
+  }
+
   @OKW (FN="Dashboard")
   SeLink Dashboard = new SeLink("//a[@href='index.php']//div[@class='wp-menu-name']/..");
   

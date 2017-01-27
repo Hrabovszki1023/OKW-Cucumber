@@ -89,16 +89,17 @@ public class LoginTest {
 	    EN.StartApp("Firefox");
 	    EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
 	    
-	    EN.SelectWindow("WP-Login");
+	    EN.SelectWindow("WP Login");
 	    EN.SetValue("Username", "Zoltan");
 	    EN.SetValue("Password", "${TestPassword}");
 	    EN.ClickOn("Log In");
 	    
 	    EN.VerifyExists("Login Error", "NO");
 	    
-      //EN.SelectWindow("WP-Admin");
-	    
-	    
+      EN.SelectWindow("WP Dashboard");
+	    EN.ClickOn( "Posts" );
+      EN.ClickOn( "Add New Posts" );
+      
 	    EN.StopApp("Firefox");
 	    EN.EndTest();
 	  }

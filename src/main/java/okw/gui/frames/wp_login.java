@@ -3,7 +3,7 @@ package okw.gui.frames;
 import okw.OKW;
 import okw.gui.adapter.selenium.*;
 
-@OKW(FN="WP-Login")
+@OKW(FN="WP Login")
 public class wp_login extends SeBrowserChild
 {
 
@@ -16,8 +16,8 @@ public class wp_login extends SeBrowserChild
     @OKW (FN="Remember Me")
     public SeInputCheckbox Remember_Me = new SeInputCheckbox("%1$s//*[@id='rememberme']", this.getLOCATOR() );;
 
-	@OKW( FN = "Log In")
-	public SeInputButton Log_In = new SeInputButton( "%1$s//*[@id='wp-submit']", this.getLOCATOR() );;
+	  @OKW( FN = "Log In")
+	  public SeInputButton Log_In = new SeInputButton( "%1$s//*[@id='wp-submit']", this.getLOCATOR() );;
 
     @OKW( FN = "Lost your password")
     public SeLink LostPasswd = new SeLink( "%1$s//p[@id='nav']/a", this.getLOCATOR() );
