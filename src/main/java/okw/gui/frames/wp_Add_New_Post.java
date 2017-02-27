@@ -1,9 +1,8 @@
 package okw.gui.frames;
 
 import okw.OKW;
-import okw.gui.container.wp_basewindow;
-import okw.gui.container.wp_format;
 import okw.gui.adapter.selenium.SeInputText;
+import okw.gui.container.wp_format;
 import okw.gui.adapter.selenium.SeInputButton;
 
 
@@ -12,7 +11,7 @@ public class wp_Add_New_Post extends wp_basewindow
 {
 
   @OKW (FN="Title")
-  public SeInputText Username = new SeInputText("%1$s//*[@id='title']", this.getLOCATOR() );
+  public SeInputText Title = new SeInputText("%1$s//*[@id='title']", this.getLOCATOR() );
 
   // -------------------------
   // Main
@@ -29,10 +28,10 @@ public class wp_Add_New_Post extends wp_basewindow
   public SeInputButton Bold = new SeInputButton( "%1$s//*[@id='mce-ico mce-i-bold']/..", this.getLOCATOR() );;
 
   @OKW( FN = "Italic")
-  public SeInputButton Log_In = new SeInputButton( "%1$s//*[@id='mce-ico mce-i-italic']/..", this.getLOCATOR() );;
+  public SeInputButton Italic = new SeInputButton( "%1$s//*[@id='mce-ico mce-i-italic']/..", this.getLOCATOR() );;
 
-  @OKW (FN="Content-editor")
-  public SeInputText Content_Editor = new SeInputText("%1$s//*[@id='tinymce']", this.getLOCATOR() );
+  @OKW (FN="Content Editor")
+  public SeInputText Content_Editor = new SeInputText("content_ifr", "//body[@id='tinymce']" );
   
 
   // -------------------------
@@ -46,6 +45,5 @@ public class wp_Add_New_Post extends wp_basewindow
   {
     super("//body//h1[text()='Add New Post']/../../../../../..");
   }
-
 }
 

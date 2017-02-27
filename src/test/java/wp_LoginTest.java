@@ -1,16 +1,13 @@
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
+
+
+import org.junit.*;
 import org.junit.rules.TestName;
 
 import okw.core.EN;
 import okw.log.Logger_Sngltn;
 import okw.log.log2html.Log2HTML;
 
-public class LoginTest {
+public class wp_LoginTest {
 
 	static Logger_Sngltn myLogger;
 	
@@ -30,6 +27,8 @@ public class LoginTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception
 	{
+	  
+
         myLogger = Logger_Sngltn.getInstance();
         myLog2html = new Log2HTML();
 
@@ -54,10 +53,17 @@ public class LoginTest {
   public void FirefoxAfter() throws Exception
   {
     Runtime rt = Runtime.getRuntime();
-      if (System.getProperty("os.name").toLowerCase().indexOf("windows") > -1) 
-         rt.exec("taskkill firefox");
-       else
-         rt.exec("pkill -f firefox");
+    
+    if (System.getProperty("os.name").toLowerCase().indexOf("windows") > -1)
+    {
+       rt.exec("taskkill firefox");
+    }
+    else
+    {
+       rt.exec("pkill -f firefox");
+    }
+    
+    Thread.sleep( 1000 );
   }
 
 
@@ -68,7 +74,7 @@ public class LoginTest {
 		EN.StartApp("Firefox");
 		EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
 		
-		EN.SelectWindow("WP-Login");
+		EN.SelectWindow("WP Login");
 		EN.SetValue("Username", "Zoltan");
 		EN.SetValue("Password", "Uschi");
 		EN.ClickOn("Log In");
@@ -81,7 +87,7 @@ public class LoginTest {
 
 	
 	 @Test
-	  public void tcWP_Login() throws Exception {
+	  public void tcWP_AddNewPost() throws Exception {
 	    EN.BeginTest(tcname.getMethodName());
 	    
 	    EN.StartApp("Firefox");
@@ -89,7 +95,7 @@ public class LoginTest {
 	    
 	    EN.SelectWindow("WP Login");
 	    EN.SetValue("Username", "Zoltan");
-	    EN.SetValue("Password", "");
+	    EN.SetValue("Password", "${Password}");
 	    EN.ClickOn("Log In");
 	    
 	    EN.VerifyExists("Login Error", "NO");
@@ -98,7 +104,11 @@ public class LoginTest {
 	    EN.ClickOn( "Posts" );
       EN.ClickOn( "Add New Posts" );
       
-	    EN.StopApp("Firefox");
+      EN.SelectWindow("WP Add New Post");
+      EN.SetValue( "Title", "My First Post" );
+      EN.TypeKey( "Content Editor", "${TCN}" );
+	    
+      EN.StopApp("Firefox");
 	    EN.EndTest();
 	  }
 

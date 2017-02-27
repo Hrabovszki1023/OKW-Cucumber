@@ -26,7 +26,7 @@ public class wp_login extends SeBrowserChild
     public SeLink Back = new SeLink( "%1$s//p[@id='backoblog']/a", this.getLOCATOR() );
 	
     @OKW( FN = "Login Error")
-    public SeAnyWin LogError = new SeAnyWin( "%1$s//div[@id='login_error']", this.getLOCATOR() );
+    public SeAnyWindow LogError = new SeAnyWindow( "%1$s//div[@id='login_error']", this.getLOCATOR() );
 
     public wp_login()
     {
