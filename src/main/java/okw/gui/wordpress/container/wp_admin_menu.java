@@ -1,4 +1,4 @@
-package okw.gui.frames;
+package okw.gui.wordpress.container;
 
 import okw.OKW;
 import okw.gui.OKWLocator;

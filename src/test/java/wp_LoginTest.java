@@ -27,8 +27,7 @@ public class wp_LoginTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception
 	{
-	  
-
+        okw.OKW_Memorize_Sngltn.getInstance().Set( "Password", "OIdtaTbxQZn3xKmq(LGz9J*0" );
         myLogger = Logger_Sngltn.getInstance();
         myLog2html = new Log2HTML();
 
@@ -93,21 +92,43 @@ public class wp_LoginTest {
 	    EN.StartApp("Firefox");
 	    EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
 	    
-	    EN.SelectWindow("WP Login");
-	    EN.SetValue("Username", "Zoltan");
-	    EN.SetValue("Password", "${Password}");
-	    EN.ClickOn("Log In");
-	    
-	    EN.VerifyExists("Login Error", "NO");
+	    EN.Sequence( "WP Login", "Login", "Zoltan/${Password}" );
 	    
       EN.SelectWindow("WP Dashboard");
+      
+      // TODO: Create Menu-GUI-Adapter.
+      // The Traget is EN.SelectMenu("Add New Posts")
 	    EN.ClickOn( "Posts" );
       EN.ClickOn( "Add New Posts" );
       
       EN.SelectWindow("WP Add New Post");
       EN.SetValue( "Title", "My First Post" );
-      EN.TypeKey( "Content Editor", "${TCN}" );
+      EN.TypeKey( "Content Editor", "This is the Testcase: ${TCN}" );
 	    
+      // Select "Format"
+      EN.Select( "Format", "Standard" );
+      /** EN.Select( "Format", "Aside" );
+      EN.Select( "Format", "Image" );
+      EN.Select( "Format", "Video" );
+      EN.Select( "Format", "Quote" );
+      EN.Select( "Format", "Link" );
+      EN.Select( "Format", "Gallery" );
+      EN.Select( "Format", "Status" );
+      EN.Select( "Format", "Audio" );
+      EN.Select( "Format", "Chat" ); */
+      
+      // Publish bereich
+      EN.Select("Publish Status", "Pending Review" );
+      
+      // Select "Visibility"
+      EN.Select("Publish Visibility", "Private" );
+      /**EN.Select("Publish Visibility", "Password protected${SEP}Secret!" );
+      EN.Select("Publish Visibility", "Public" );*/
+      
+      // Set "Publish Date"
+      EN.SetValue("Publish Date", "03-Mar 20,2017@20:15" );
+      
+      
       EN.StopApp("Firefox");
 	    EN.EndTest();
 	  }

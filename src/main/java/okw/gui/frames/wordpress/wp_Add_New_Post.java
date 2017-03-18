@@ -1,8 +1,9 @@
-package okw.gui.frames;
+package okw.gui.frames.wordpress;
 
 import okw.OKW;
 import okw.gui.adapter.selenium.SeInputText;
-import okw.gui.container.wp_format;
+import okw.gui.wordpress.boxes.format.wp_format;
+import okw.gui.wordpress.boxes.publish.wp_publish;
 import okw.gui.adapter.selenium.SeInputButton;
 
 
@@ -37,8 +38,10 @@ public class wp_Add_New_Post extends wp_basewindow
   // -------------------------
   // GUI object on the rigth
   // -------------------------
+  public wp_publish mypublish = new wp_publish( "%1$s//span[text() = 'Publish']/../..", this.getLOCATOR() );  
+  
   @OKW (FN="Format")
-  public wp_format myFormat = new wp_format( "%1$s//span[text() = 'Format']/../..", this.getLOCATOR() );
+  public wp_format myFormat = new wp_format( "//div[@id = 'post-formats-select']/fieldset" );
 
   
   public wp_Add_New_Post()

@@ -1,6 +1,10 @@
-package okw.gui.frames;
+package okw.gui.frames.wordpress;
+
+import java.util.ArrayList;
 
 import okw.OKW;
+import okw.OKW_Helper;
+import okw.core.EN;
 import okw.gui.adapter.selenium.*;
 
 @OKW(FN="WP Login")
@@ -28,6 +32,19 @@ public class wp_login extends SeBrowserChild
     @OKW( FN = "Login Error")
     public SeAnyWindow LogError = new SeAnyWindow( "%1$s//div[@id='login_error']", this.getLOCATOR() );
 
+    
+    public void Login( String SEQID ) throws Exception
+    {
+       ArrayList<String> myParams = OKW_Helper.StrSplit( SEQID, "/" );
+       
+       EN.SelectWindow( this.getFN() );
+       EN.SetValue( "Username", myParams.get( 0 ) );
+       EN.SetValue( "Password", myParams.get( 1 ) );
+       EN.ClickOn( "Log In" );
+
+       EN.VerifyExists( "Login Error", "NO" );
+    }
+    
     public wp_login()
     {
     	super("//body/div[@id='login']/..");

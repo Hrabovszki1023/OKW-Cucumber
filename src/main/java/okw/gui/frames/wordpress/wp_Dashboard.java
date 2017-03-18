@@ -1,4 +1,4 @@
-package okw.gui.frames;
+package okw.gui.frames.wordpress;
 
 import okw.OKW;
 
