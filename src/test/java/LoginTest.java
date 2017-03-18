@@ -91,16 +91,20 @@ public class LoginTest {
 	    
 	    EN.SelectWindow("WP Login");
 	    EN.SetValue("Username", "Zoltan");
-	    EN.SetValue("Password", "${TestPassword}");
+	    EN.SetValue("Password", "OIdtaTbxQZn3xKmq(LGz9J*0");
 	    EN.ClickOn("Log In");
 	    
 	    EN.VerifyExists("Login Error", "NO");
 	    
-      EN.SelectWindow("WP Dashboard");
+	    
+        EN.SelectWindow("WP Dashboard");
 	    EN.ClickOn( "Posts" );
-      EN.ClickOn( "Add New Posts" );
+        EN.ClickOn( "Add New Posts" );
       
-	    EN.StopApp("Firefox");
+        EN.SelectWindow("WP Add New Post");
+
+
+        EN.StopApp("Firefox");
 	    EN.EndTest();
 	  }
 
