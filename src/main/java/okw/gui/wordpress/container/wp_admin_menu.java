@@ -1,7 +1,6 @@
-package okw.gui.container;
+package okw.gui.wordpress.container;
 
 import okw.OKW;
-import okw.gui.AnyWinBase;
 import okw.gui.OKWLocator;
 import okw.gui.adapter.selenium.*;
 
@@ -17,22 +16,16 @@ import okw.gui.adapter.selenium.*;
 //  * Sub-Menü´s wie All Posts, Add New usw "//ul[contains(@class, 'wp-submenu')]//a[@href='????.php']""
 // Capturen ist hier nicht möglich
 // ZH
-public class wp_admin_menu extends SeAnyWin
+public class wp_admin_menu extends SeAnyChildWindow
 {
   public wp_admin_menu( String Locator, OKWLocator okwLocator )
   {
     super( Locator, okwLocator );
   }
 
-  //-------------------------------
-  // Dashboard
-  //
   @OKW (FN="Dashboard")
   public SeLink Dashboard = new SeLink("//a[@href='index.php']//div[@class='wp-menu-name']/..");
   
-  //-------------------------------
-  // Posts
-  //
   @OKW (FN="Posts")
   public SeLink Posts = new SeLink("//a[@href='edit.php']//div[@class='wp-menu-name']/..");
   
@@ -43,9 +36,6 @@ public class wp_admin_menu extends SeAnyWin
   public SeLink AddNewPosts = new SeLink("//ul[contains(@class, 'wp-submenu')]//a[@href='post-new.php']");
   
   
-  //-------------------------------
-  // Media
-  //
   @OKW (FN="Media")
   public SeLink Media = new SeLink("//a[@href='upload.php']//div[@class='wp-menu-name']/..");
 
@@ -56,23 +46,14 @@ public class wp_admin_menu extends SeAnyWin
   public SeLink AddNewMedia = new SeLink("//ul[contains(@class, 'wp-submenu')]//a[@href='media-new.php']");
 
   
-  //-------------------------------
-  // Comments
-  //
   @OKW (FN="Comments")
   public SeLink Comments = new SeLink("//a[@href='edit-comments.php']//div[@class='wp-menu-name']/..");
 
   
-  //-------------------------------
-  // Profile
-  //
   @OKW (FN="Profile")
   public SeLink Profile = new SeLink("//a[@href='profile.php']//div[@class='wp-menu-name']/..");
 
   
-  //-------------------------------
-  // Tools
-  //
   @OKW (FN="Tools")
   public SeLink Tools = new SeLink("//a[@href='tools.php']//div[@class='wp-menu-name']/..");
   
