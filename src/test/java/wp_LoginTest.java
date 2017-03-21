@@ -70,7 +70,7 @@ public class wp_LoginTest {
 	public void tcWP_LoginError() throws Exception {
 		EN.BeginTest(tcname.getMethodName());
 		
-		EN.StartApp("Firefox");
+		EN.StartApp("HTMLUnit");
 		EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
 		
 		EN.SelectWindow("WP Login");
@@ -89,7 +89,7 @@ public class wp_LoginTest {
 	  public void tcWP_AddNewPost() throws Exception {
 	    EN.BeginTest(tcname.getMethodName());
 	    
-	    EN.StartApp("Firefox");
+	    EN.StartApp("HTMLUnit");
 	    EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
 	    
 	    EN.Sequence( "WP Login", "Login", "Zoltan/${Password}" );

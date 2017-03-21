@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - oraclejdk8
+install:  
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -Dgpg.skip=true -B -V
+script:
+  - mvn test -Dtest=wp_LoginTest,Hello_OKW -Dgpg.skip=true -pl core
+notifications:
+  email:
+    - zh@openkeyword.de
