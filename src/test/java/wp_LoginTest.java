@@ -80,7 +80,7 @@ public class wp_LoginTest {
 		
 		EN.VerifyExists("Login Error", "YES");
 		
-		EN.StopApp("Firefox");
+		EN.StopApp("HTMLUnit");
 		EN.EndTest();
 	}
 
@@ -129,7 +129,7 @@ public class wp_LoginTest {
       EN.SetValue("Publish Date", "03-Mar 20,2017@20:15" );
       
       
-      EN.StopApp("Firefox");
+      EN.StopApp("HTMLUnit");
 	    EN.EndTest();
 	  }
 
