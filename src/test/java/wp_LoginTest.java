@@ -70,7 +70,7 @@ public class wp_LoginTest {
 	public void tcWP_LoginError() throws Exception {
 		EN.BeginTest(tcname.getMethodName());
 		
-		EN.StartApp("Firefox");
+		EN.StartApp("HTMLUnit");
 		EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
 		
 		EN.SelectWindow("WP Login");
@@ -80,13 +80,13 @@ public class wp_LoginTest {
 		
 		EN.VerifyExists("Login Error", "YES");
 		
-		EN.StopApp("Firefox");
+		EN.StopApp("HTMLUnit");
 		EN.EndTest();
 	}
 
 	
 	@Test
-	public void tcWP_AddNewPost_Firefox() throws Exception {
+	public void tcWP_AddNewPost() throws Exception {
 		EN.BeginTest(tcname.getMethodName());
 
 		EN.StartApp("Firefox");
@@ -131,51 +131,5 @@ public class wp_LoginTest {
 		EN.StopApp("Firefox");
 		EN.EndTest();
 	}
-	
-	@Test
-	public void tcWP_AddNewPost_HTMLUnittest() throws Exception {
-		EN.BeginTest(tcname.getMethodName());
 
-		EN.StartApp("HTMLUnit");
-		EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
-
-		EN.Sequence("WP Login", "Login", "Zoltan/${Password}");
-
-		EN.SelectWindow("WP Dashboard");
-
-		// TODO: Create Menu-GUI-Adapter.
-		// The Traget is EN.SelectMenu("Add New Posts")
-		EN.ClickOn("Posts");
-		EN.ClickOn("Add New Posts");
-
-		EN.SelectWindow("WP Add New Post");
-		EN.SetValue("Title", "My First Post");
-		EN.TypeKey("Content Editor", "This is the Testcase: ${TCN}");
-
-		// Select "Format"
-		EN.Select("Format", "Standard");
-		/**
-		 * EN.Select( "Format", "Aside" ); EN.Select( "Format", "Image" );
-		 * EN.Select( "Format", "Video" ); EN.Select( "Format", "Quote" );
-		 * EN.Select( "Format", "Link" ); EN.Select( "Format", "Gallery" );
-		 * EN.Select( "Format", "Status" ); EN.Select( "Format", "Audio" );
-		 * EN.Select( "Format", "Chat" );
-		 */
-
-		// Publish bereich
-		EN.Select("Publish Status", "Pending Review");
-
-		// Select "Visibility"
-		EN.Select("Publish Visibility", "Private");
-		/**
-		 * EN.Select("Publish Visibility", "Password protected${SEP}Secret!" );
-		 * EN.Select("Publish Visibility", "Public" );
-		 */
-
-		// Set "Publish Date"
-		EN.SetValue("Publish Date", "03-Mar 20,2017@20:15");
-
-		EN.StopApp("HTMLUnit");
-		EN.EndTest();
-	}
 }
