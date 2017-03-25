@@ -40,7 +40,7 @@ public class wp_LoginTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		myLog2html.Result2HTML("target/LoginTest.html");
+		myLog2html.Result2HTML("target/wp_LoginTest.html");
 	}
 
 	@Before
@@ -51,7 +51,7 @@ public class wp_LoginTest {
   @After
   public void FirefoxAfter() throws Exception
   {
-    Runtime rt = Runtime.getRuntime();
+     Runtime rt = Runtime.getRuntime();
     
     if (System.getProperty("os.name").toLowerCase().indexOf("windows") > -1)
     {
@@ -62,7 +62,7 @@ public class wp_LoginTest {
        rt.exec("pkill -f firefox");
     }
     
-    Thread.sleep( 1000 );
+    Thread.sleep( 2000 );
   }
 
 
@@ -70,7 +70,7 @@ public class wp_LoginTest {
 	public void tcWP_LoginError() throws Exception {
 		EN.BeginTest(tcname.getMethodName());
 		
-		EN.StartApp("HTMLUnit");
+		EN.StartApp("Firefox");
 		EN.SetValue("URL", "http://wordpress.openkeyword.de/wp-login.php");
 		
 		EN.SelectWindow("WP Login");
@@ -80,7 +80,7 @@ public class wp_LoginTest {
 		
 		EN.VerifyExists("Login Error", "YES");
 		
-		EN.StopApp("HTMLUnit");
+		EN.StopApp("Firefox");
 		EN.EndTest();
 	}
 

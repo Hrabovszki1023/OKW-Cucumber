@@ -55,7 +55,7 @@ public class LoginTest {
   @After
   public void FirefoxAfter() throws Exception
   {
-    Runtime rt = Runtime.getRuntime();
+	  Runtime rt = Runtime.getRuntime();
       if (System.getProperty("os.name").toLowerCase().indexOf("windows") > -1) 
          rt.exec("taskkill firefox");
        else
